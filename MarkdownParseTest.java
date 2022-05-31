@@ -132,7 +132,7 @@ public class MarkdownParseTest {
     
     @Test
     public void MyMardownTestSnippet2() throws IOException{
-        Path snippet2Path = Path.of("https://github.com/JeryKinson/Markdown-parse/blob/43f2743a8c4d900ac9145a9ceb54aee8b305ac18/testSnippet1.md");
+        Path snippet2Path = Path.of("testSnippet2.md");
         String snippet2Content = Files.readString(snippet2Path);
         ArrayList<String> links = MarkdownParse.getLinks(snippet2Content);
         ArrayList<String> result = new ArrayList<String>();
@@ -144,7 +144,7 @@ public class MarkdownParseTest {
     
     @Test
     public void MyMardownTestSnippet3() throws IOException{
-        Path snippet3Path = Path.of("/Users/jasonhu/Documents/GitHub/markdown-parser/TestSnippet3.md");
+        Path snippet3Path = Path.of("testSnippet3.md");
         String snippet3Content = Files.readString(snippet3Path);
         ArrayList<String> links = MarkdownParse.getLinks(snippet3Content);
         ArrayList<String> result = new ArrayList<String>();
@@ -152,35 +152,31 @@ public class MarkdownParseTest {
         assertEquals(result, links);
     }
     
+    
     @Test
-    public void MardownReviewTestSnippet1() throws IOException{
-        Path snippet1Path = Path.of("/Users/jasonhu/Documents/GitHub/markdown-parser/TestSnippet1.md");
-        String snippet1Content = Files.readString(snippet1Path);
-        ArrayList<String> links = MarkdownParseReview.getLinks(snippet1Content);
-        ArrayList<String> result = new ArrayList<String>();
-        result.add("`google.com");
-        assertEquals(result, links);
+    public void reviewedCodeSnippet1() throws IOException{
+        Graph graph = new Graph();
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("`google.com");
+        assertEquals(expected, graph.getLinks(Files.readString(Path.of("testSnippet1.md"))));
+
     }
 
     @Test
-    public void MardownReviewTestSnippet2() throws IOException{
-        Path snippet2Path = Path.of("/Users/jasonhu/Documents/GitHub/markdown-parser/TestSnippet2.md");
-        String snippet2Content = Files.readString(snippet2Path);
-        ArrayList<String> links = MarkdownParseReview.getLinks(snippet2Content);
-        ArrayList<String> result = new ArrayList<String>();
-        result.add("a.com");
-        result.add("a.com(())");
-        result.add("example.com");
-        assertEquals(result, links);
+    public void reviewedCodeSnippet2() throws IOException{
+        Graph graph = new Graph();
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("b.com");
+        expected.add("a.com(())");
+        expected.add("example.com");
+        assertEquals(expected, graph.getLinks(Files.readString(Path.of("testSnippet2.md"))));
+
     }
 
     @Test
-    public void MardownReviewTestSnippet3() throws IOException{
-        Path snippet3Path = Path.of("/Users/jasonhu/Documents/GitHub/markdown-parser/TestSnippet3.md");
-        String snippet3Content = Files.readString(snippet3Path);
-        ArrayList<String> links = MarkdownParseReview.getLinks(snippet3Content);
-        ArrayList<String> result = new ArrayList<String>();
-        result.add("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
-        assertEquals(result, links);
+    public void reviewedCodeSnippet3() throws IOException{
+        Graph graph = new Graph();
+        ArrayList<String> expected = new ArrayList<>();
+        assertEquals(expected, graph.getLinks(Files.readString(Path.of("testSnippet3.md"))));
     }
 }
