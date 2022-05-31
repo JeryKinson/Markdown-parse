@@ -64,7 +64,7 @@ public class MarkdownParseTest {
     public void testGetLinks5() throws IOException {
         MarkdownParse test = new MarkdownParse();
 
-        Path fileName = Path.of("/Users/jasonhu/Documents/GitHub/markdown-parser/test-file2.md");
+        Path fileName = Path.of("/Users/Jery/Documents/GitHub/Markdown-parse/test-file2.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = test.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
@@ -88,7 +88,7 @@ public class MarkdownParseTest {
     public void testGetLinks7() throws IOException {
         MarkdownParse test = new MarkdownParse();
 
-        Path fileName = Path.of("/Users/jasonhu/Documents/GitHub/markdown-parser/test-file4.md");
+        Path fileName = Path.of("/Users/Jery/Documents/GitHub/Markdown-parse/test-file4.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = test.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
@@ -99,30 +99,16 @@ public class MarkdownParseTest {
     public void testGetLinks8() throws IOException {
         MarkdownParse test = new MarkdownParse();
 
-        Path fileName = Path.of("/Users/jasonhu/Documents/GitHub/markdown-parser/test-file7.md");
+        Path fileName = Path.of("/Users/Jery/Documents/GitHub/Markdown-parse/test-file7.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = test.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
         assertEquals(expected,links);
-    }
-
-    @Test
-    public void testGetLinks9() throws IOException {
-        MarkdownParse test = new MarkdownParse();
-
-        Path fileName = Path.of("/Users/jasonhu/Documents/GitHub/markdown-parser/test-file8.md");
-        String content = Files.readString(fileName);
-        ArrayList<String> links = test.getLinks(content);
-        ArrayList<String> expected = new ArrayList<>();
-        expected.add("a link on the first line");
-
-        assertEquals(expected,links);
-
     }
     
     @Test
     public void MyMardownTestSnippet1() throws IOException{
-        Path snippet1Path = Path.of("testSnippet1.md");
+        Path snippet1Path = Path.of("/Users/Jery/Documents/GitHub/Markdown-parse/testSnippet1.md");
         String snippet1Content = Files.readString(snippet1Path);
         ArrayList<String> links = MarkdownParse.getLinks(snippet1Content);
         ArrayList<String> result = new ArrayList<String>();
@@ -132,7 +118,7 @@ public class MarkdownParseTest {
     
     @Test
     public void MyMardownTestSnippet2() throws IOException{
-        Path snippet2Path = Path.of("testSnippet2.md");
+        Path snippet2Path = Path.of("/Users/Jery/Documents/GitHub/Markdown-parse/testSnippet2.md");
         String snippet2Content = Files.readString(snippet2Path);
         ArrayList<String> links = MarkdownParse.getLinks(snippet2Content);
         ArrayList<String> result = new ArrayList<String>();
@@ -144,7 +130,7 @@ public class MarkdownParseTest {
     
     @Test
     public void MyMardownTestSnippet3() throws IOException{
-        Path snippet3Path = Path.of("testSnippet3.md");
+        Path snippet3Path = Path.of("/Users/Jery/Documents/GitHub/Markdown-parse/testSnippet3.md");
         String snippet3Content = Files.readString(snippet3Path);
         ArrayList<String> links = MarkdownParse.getLinks(snippet3Content);
         ArrayList<String> result = new ArrayList<String>();
@@ -158,7 +144,7 @@ public class MarkdownParseTest {
         Graph graph = new Graph();
         ArrayList<String> expected = new ArrayList<>();
         expected.add("`google.com");
-        assertEquals(expected, graph.getLinks(Files.readString(Path.of("testSnippet1.md"))));
+        assertEquals(expected, graph.getLinks(Files.readString(Path.of("/Users/Jery/Documents/GitHub/Markdown-parse/testSnippet1.md"))));
 
     }
 
@@ -169,7 +155,7 @@ public class MarkdownParseTest {
         expected.add("b.com");
         expected.add("a.com(())");
         expected.add("example.com");
-        assertEquals(expected, graph.getLinks(Files.readString(Path.of("testSnippet2.md"))));
+        assertEquals(expected, graph.getLinks(Files.readString(Path.of("/Users/Jery/Documents/GitHub/Markdown-parse/testSnippet2.md"))));
 
     }
 
@@ -177,6 +163,6 @@ public class MarkdownParseTest {
     public void reviewedCodeSnippet3() throws IOException{
         Graph graph = new Graph();
         ArrayList<String> expected = new ArrayList<>();
-        assertEquals(expected, graph.getLinks(Files.readString(Path.of("testSnippet3.md"))));
+        assertEquals(expected, graph.getLinks(Files.readString(Path.of("/Users/Jery/Documents/GitHub/Markdown-parse/testSnippet3.md"))));
     }
 }
