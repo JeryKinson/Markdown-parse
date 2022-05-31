@@ -76,7 +76,6 @@ public class MarkdownParseTest {
     public void reviewedCodeSnippet3() throws IOException{
         Graph graph = new Graph();
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
         assertEquals(expected, graph.getLinks(Files.readString(Path.of("/Users/Jery/Documents/GitHub/Markdown-parse/testSnippet3.md"))));
     }
 }
