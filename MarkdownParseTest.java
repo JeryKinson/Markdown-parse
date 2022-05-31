@@ -122,7 +122,7 @@ public class MarkdownParseTest {
     
     @Test
     public void MyMardownTestSnippet1() throws IOException{
-        Path snippet1Path = Path.of("/Users/jasonhu/Documents/GitHub/markdown-parser/TestSnippet1.md");
+        Path snippet1Path = Path.of("testSnippet1.md");
         String snippet1Content = Files.readString(snippet1Path);
         ArrayList<String> links = MarkdownParse.getLinks(snippet1Content);
         ArrayList<String> result = new ArrayList<String>();
@@ -132,7 +132,7 @@ public class MarkdownParseTest {
     
     @Test
     public void MyMardownTestSnippet2() throws IOException{
-        Path snippet2Path = Path.of("/Users/jasonhu/Documents/GitHub/markdown-parser/TestSnippet2.md");
+        Path snippet2Path = Path.of("https://github.com/JeryKinson/Markdown-parse/blob/43f2743a8c4d900ac9145a9ceb54aee8b305ac18/testSnippet1.md");
         String snippet2Content = Files.readString(snippet2Path);
         ArrayList<String> links = MarkdownParse.getLinks(snippet2Content);
         ArrayList<String> result = new ArrayList<String>();
